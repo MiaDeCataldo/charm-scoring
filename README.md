@@ -42,3 +42,15 @@
 *Although using virtual environments is highly recommended, it is possible to execute the code without one. If too many difficulties are faced, then Steps 5, 6, and 10 can be skipped during initial setup. In this scenario, Steps 1 and 4 can be skipped during future runs*
 
 *If no virtual environment is created (and ```pip install pandas``` is run) then the package will be installed globally. This has no explicit downside, but can lead to disorganization and misconfiguration down the line*
+
+
+## Repository Breakdown:
+1. ```score.py```: Python source code; reads all properly formatted CSVs from the ```Flanker_csv``` directory and exports results to ```scoring_file.csv```. Once all packages are installed, activate this script with ```python3 score.py```
+
+2. ```requirements.txt```: text file that contains all necessary packages (contains all packages and dependecies necessary for Pandas). Install requirements with ```pip install -r requirements.txt```
+
+3. ```Flanker_csv/C2xxx_flanker.csv```: subdirectory and participant files that MUST BE CREATED AND RENAMED BY YOU, to match the schema set in ```score.py``` (when initially downloading this repository, this folder will not be present).
+
+4. ```LICENSE.md``` & ```README.md```: open-source MIT license and directions for use, respectively (".md" file extension means "Markdown": these files are best viewed on Github, or any other markdown viewer; that way they'll be formatted nicely, not just a monospace text blob).
+
+5. ```.gitignore```: file that declares which local files I don't want to send to this repository. For example, the ".venv" directory is a part of this file: it would be unneccessary to save this environment to Github; instead, I've added the requirements.txt file so that any user can create their own environment with the same specifications.
