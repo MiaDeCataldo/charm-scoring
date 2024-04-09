@@ -1,4 +1,4 @@
-# [BNL] Charm Flanker Scoring
+# [BNL] CHARM Flanker Scoring
 
 ## First Time Setup:
 
@@ -12,7 +12,7 @@
     - *If the folder and/or file names do not match exactly (including capitalization), the files will not be recongnized and no data will be analyzed*
 
 4. In a terminal window, navigate to the project directory.
-    - This is possible using Window's File Explorer or Mac's Finder; just right click the flanker_scoring folder and select "Open in Terminal". 
+    - This is possible using Window's File Explorer or Mac's Finder; just right click the flanker-scoring folder and select "Open in Terminal". 
     - Alternatively, use the ```cd <destination>``` command to navigate through directories in a terminal interface. If you cloned the repository using ```git clone``` in step 2, the command ```cd flanker-scoring``` will move you to the correct directory.
     - *The command ```pwd``` in a terminal will print the working directory. Use this to confirm where you are*
 
