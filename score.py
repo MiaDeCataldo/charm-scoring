@@ -82,10 +82,10 @@ while id <= 2999:
 
     # find accuracy (ACC) for both INC and CON trials
     # format score to four decimal places
-    accuracy_con = congruent['Score'].sum() / len(congruent)
+    accuracy_con = congruent['Score'].sum() / len(congruent.index)
     con_acc = '{:10.4f}'.format(accuracy_con)
 
-    accuracy_inc = incongruent['Score'].sum() / len(incongruent)
+    accuracy_inc = incongruent['Score'].sum() / len(incongruent.index)
     inc_acc = '{:10.4f}'.format(accuracy_inc)
 
     # append participant data to end of output dataframe

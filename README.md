@@ -22,9 +22,8 @@
 ---
 
 6. Execute Python script with ```python3 score.py```
-7. The outputted scores will be sent to 'scoring_file.txt' in the same directory. Use command 'cat' to display the contents of the file: ```cat scoring_file.txt``` (or view in Operating System specific text viewer)
+7. The outputted scores will be sent to 'scoring_file.csv' in the same directory. Use command 'cat' to display the contents of the file: ```cat scoring_file.csv``` (or view in Operating System specific text viewer)
 
-![Score output](img/scores.png)
 ---
 
 8. To remove virtual environment from context, use command ```deactivate```
