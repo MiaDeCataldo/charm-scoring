@@ -1,4 +1,4 @@
-# [BNL] Charm Flanker Scoring
+# [BNL] CHARM Flanker Scoring
 
 ## First Time Setup:
 
