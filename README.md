@@ -32,4 +32,4 @@
 ## For future runs:
 1. Once you create the virtual environment and install Pandas to it, you can reuse this environment again the next time.
 2. If you already have the environment configured, navigate to the same project directory and use the command again: ```source .venv/bin/activate```.
-3. No need to install anything this time. When done executing code that requires Pandas, use command ```deactivate``` (regular Python code can be executed without this virtual environment; when Pandas is required we can use the environment to keep our dependencies organized)
+3. No need to install anything this time. You can execute the Python code that uses Pandas by using the command ```python3 score.py```.When done executing code that requires Pandas, use command ```deactivate``` (regular Python code can be executed without this virtual environment; when Pandas is required we can use the environment to keep our dependencies organized)
