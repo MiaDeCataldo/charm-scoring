@@ -1,4 +1,4 @@
-# import framework (PANDAS) for manipulating data
+# import framework (PANDAS) for manipulating data: https://pandas.pydata.org/
 import pandas as pd
 
 # participant ID
@@ -28,7 +28,7 @@ while id <= 2999:
       'AssessmentName', 
       'InstrumentID', 
       'InstrumentName', 
-      'ThetaStandardError', 
+      'ThetaStandardError',
       'Theta', 
       'TScore', 
       'TScoreStandardError', 
@@ -69,7 +69,7 @@ while id <= 2999:
     incongruent = flanker_trials[flanker_trials['ItemID'].apply(zero_if_con) != 0]
     congruent = flanker_trials[flanker_trials['ItemID'].apply(zero_if_inc) != 0]
 
-    # write to file, using file variable 'scoring_file' opened at beginning
+    # create participant ID variable to add to result dataframe
     pid = f'{id}'
 
     # find reaction time (RT) for both INC and CON trials
@@ -92,9 +92,7 @@ while id <= 2999:
     results.loc[len(results.index)] = [pid, con_rt, inc_rt, con_acc, inc_acc]
 
   # only gets run whenever 'try' block fails (file name does not exist); go to next ID
-  except:
-    pass
-  
+  except: pass
 
   # necessary for 'while' loop to advance to next participant ID
   id += 1
