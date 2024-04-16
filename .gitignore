@@ -1,3 +1,4 @@
 Flanker_csv
+NBack_csv
 .venv
-scoring_file.csv
+*.csv

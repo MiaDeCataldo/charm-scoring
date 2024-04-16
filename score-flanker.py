@@ -98,4 +98,4 @@ while id <= 2999:
   id += 1
 
 # export compiled dataframe to a .csv file
-results.to_csv('scoring_file.csv', sep=',', index=False)
+results.to_csv('flanker_scores.csv', sep=',', index=False)
