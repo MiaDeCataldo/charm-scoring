@@ -3,7 +3,7 @@ import pandas as pd
 import glob
 
 
-# read all matching file names in ./NBack_csv folder
+# read all matching file names in ./Flanker_csv folder
 # this variable is a list of strings, all which are present and in form 'Flanker_csv/C2xxx_flanker*.csv'
 files = glob.glob('Flanker_csv/C2???_flanker*.csv')
 
