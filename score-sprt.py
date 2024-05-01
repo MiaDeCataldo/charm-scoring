@@ -64,11 +64,11 @@ for f in files:
             x_without_brackets = y[len(y) - 1]
         return float(x_without_brackets)
 
-    new_col = df['RESP.clicked_name'].apply(zero_if_incorrect)
-    df['RESP.clicked_name'] = new_col
+    accuracy_col = df['RESP.clicked_name'].apply(zero_if_incorrect)
+    df['RESP.clicked_name'] = accuracy_col
 
-    new_col = df['RESP.time'].apply(remove_brackets)
-    df['RESP.time'] = new_col
+    normalize_rt_col = df['RESP.time'].apply(remove_brackets)
+    df['RESP.time'] = normalize_rt_col
 
     # results relavant to easy trials
     easy_df = df[df['distance'] > .25]
