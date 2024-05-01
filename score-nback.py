@@ -46,7 +46,15 @@ for f in files:
         twoback_acc = row.iloc[5]
         
         # save pid and relavent metric to output dataframe
-        results.loc[len(results.index)] = [pid, oneback_avg_corr_rt, oneback_avg_incorr_rt, oneback_acc, twoback_avg_corr_rt, twoback_avg_incorr_rt, twoback_acc]
+        results.loc[len(results.index)] = [
+            pid, 
+            oneback_avg_corr_rt, 
+            oneback_avg_incorr_rt, 
+            oneback_acc, 
+            twoback_avg_corr_rt, 
+            twoback_avg_incorr_rt, 
+            twoback_acc
+        ]
 
     
 results = results.sort_values(by='PID')
