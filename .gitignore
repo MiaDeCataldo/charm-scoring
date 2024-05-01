@@ -1,4 +1,7 @@
+# participant data folders
 Flanker_csv
 NBack_csv
+SPRT_csv
+
 .venv
 *.csv
