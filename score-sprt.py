@@ -75,18 +75,17 @@ for f in files:
     easy_right_df = easy_df[easy_df['RESP.clicked_name'] == 1]
     easy_wrong_df = easy_df[easy_df['RESP.clicked_name'] == 0]
     
-    # correct and incorrect responses (for easy)
+    # average correct, incorrect, and total accuracy (for easy)
     easy_avg_correc_rt = easy_right_df['RESP.time'].mean()
     easy_avg_incorr_rt = easy_wrong_df['RESP.time'].mean()
     easy_acc = easy_df['RESP.clicked_name'].mean()
     
     # results relavant to hard trials
     hard_df = df[df['distance'] <= .25]
-
-    # correct and incorrect responses (for hard)
     hard_right_df = hard_df[hard_df['RESP.clicked_name'] == 1]
     hard_wrong_df = hard_df[hard_df['RESP.clicked_name'] == 0]
 
+    # average correct, incorrect, and total accuracy (for hard)
     hard_avg_correc_rt = hard_right_df['RESP.time'].mean()
     hard_avg_incorr_rt = hard_wrong_df['RESP.time'].mean()
     hard_acc = hard_df['RESP.clicked_name'].mean()

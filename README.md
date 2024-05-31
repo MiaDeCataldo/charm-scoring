@@ -1,4 +1,4 @@
-# [BNL] CHARM Flanker/NBack Scoring
+# [BNL] CHARM Flanker/NBack/SPRT Scoring
 
 ## First Time Setup:
 
