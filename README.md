@@ -5,17 +5,20 @@
 1. For this code to be able to run, your computer must have a Python interpreter (v3 or greater). Confirm this by entering the following command into a terminal window: ```python3 --version```. If python3 is "not found", it can be downloaded at https://www.python.org/downloads/ (on Windows it is easiest to use the Microsoft Store).
 
 2. Download the source code to your own computer. 
-    - Select the green "<> Code" button at the top right of https://github.com/zekissel/charm-scoring, and download as a ZIP file. Unzip and move the contents to a convenient location.
-    - Alternatively, use the git command-line tool to copy the repository directly to the current working directory (requires installing git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git): ```git clone https://github.com/zekissel/charm-scoring```
+    - Select the green "<> Code" button at the top right of https://github.com/zekissel/charm-scoring, and download as a ZIP file. Unzip and move the same location as your ***Participant sub-folders*** folder.
+        - For example, if your file path is ***CHARM/Participant sub-folders***, save to ***CHARM/charm-scoring*** 
+    - Alternatively, use the git command-line tool to copy the repository directly to the current working directory (requires installing git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git): ```git clone https://github.com/MiaDeCataldo/charm-scoring```
 
-3. In the same directory/folder as the downloaded source code, create a folder named ***Flanker_csv***, and place all participant CSVs into this folder. All of the file names should have the format ***C2xxx_flanker.csv***.
-    - *If the folder and/or file names do not match exactly (including capitalization), the files will not be recongnized and no data will be analyzed*
-    - *For NBack scoring, all files should be in the same folder ***NBack_csv***, and should be named ***C2xxx_DualNBack_Task_*.csv*** where the asterick can be any number of any character (a timestamp)*
-    - *For SPRT scoring, all files should be in the same folder ***SPRT_csv***, and should be named ***C2xxx_SRT_*.csv***
+3. In the ***Participant sub-folders*** folder and save all task .csv into their respective subfolders named ***sub_Cxxxx***. 
+    - *If the folder/subfolder and/or file names do not match exactly (including capitalization), the files will not be recongnized and no data will be analyzed*
+    - *For NBack scoring, all files should be named ***Cxxxx_DualNBack_Task_*.csv*** where the asterick can be any number of any character (a timestamp)*
+    - *For SPRT scoring, all files should be named ***Cxxxx_SRT_*.csv***
+    -_ *For Flanker scoring, all files should be named ***Cxxxx_flanker.csv***_
 
-4. In a terminal window, navigate to the project directory.
-    - This is possible using Window's File Explorer or Mac's Finder; just right click the charm-scoring folder and select "Open in Terminal". 
-    - Alternatively, use the ```cd <destination>``` command to navigate through directories in a terminal interface. If you cloned the repository using ```git clone``` in step 2, the command ```cd charm-scoring``` will move you to the correct directory.
+4. In a terminal window, navigate to the project directory where the ***Participant sub-folders*** file is. (for example ***CHARM***)
+    - On Mac:  right click the project directory folder and select "Open in Terminal".
+    - On Window's File Explorer: open the project directory folder and type "cmd" in the file address bar.
+    - Alternatively, use the ```cd <destination>``` command to navigate through directories in a terminal interface. If you cloned the repository using ```git clone``` in step 2, you should already be in the correct directory.
     - *The command ```pwd``` in a terminal will print the working directory. Use this to confirm where you are*
 
 5. Create an environment in order to install Pandas (framework used to manipulate data): Enter ```python3 -m venv .venv``` into terminal ("-m venv" sets "mode" to virtual environment, and ".venv" is name of resulting directory that contains environment). 
@@ -27,11 +30,15 @@
 7. Install dependency using ```pip install pandas``` (pip is a Python package manager, and Pandas is a data manipulation framework for Python)
     - When installing Python dependencies from a provided source, the convention is to provide a file ***requirements.txt*** that contains all necessary package names. This repository has such a provided file, so alternatively you could enter the command ```pip install -r requirements.txt``` ("-r" signals that the next argument will be a requirements file)
 
-8. Execute Python script with ```python3 score-flanker.py```
+8. Execute Python script with ```python3 ./charm-scoring/score-flanker.py``` (to score flanker) 
+   - *To score Nback data execute with  ```python3 ./charm-scoring/score-nback.py```
+   - *To score SRT data execute with  ```python3 ./charm-scoring/score-SPRT.py```
 
-9. The outputted scores will be written to file ***flanker_scores.csv*** in the same directory. Use command ```cat <file>``` to display the contents of the file to terminal: ```cat scoring_file.csv``` (or view in Excel, Sheets, notepad, etc.)
+10. The outputted scores will be written to file ***charm-scoring/flanker_scores.csv***. Use command ```cat <file>``` to display the contents of the file to terminal: ```cat charm-scoring/scoring_file.csv``` (or view in Excel, Sheets, notepad, etc.)
+    -*Nback will be written to ***charm-scoring/nback_scores.csv***
+    -*SRT will be written to ***charm-scoring/sprt_scores.csv***
 
-10. To remove the virtual environment from context, use command ```deactivate```
+12. To remove the virtual environment from context, use command ```deactivate```
 
 
 ## For Future Runs:
@@ -48,11 +55,11 @@
 
 
 ## Repository Breakdown:
-1. **score-x.py** (where x is **flanker**, **nback**, or **sprt**): Python source code; reads all properly formatted CSVs from the ***X_csv*** directory and exports results to ***x_scores.csv***. Once all packages are installed, activate this script with ```python3 score-x.py```
+1. **score-x.py** (where x is **flanker**, **nback**, or **sprt**): Python source code; reads all properly formatted CSVs from the ***Participant sub-folders/sub_Cxxxx*** directory and exports results to ***x_scores.csv***. Once all packages are installed, activate this script with ```python3 score-x.py```
 
 2. **requirements.txt**: text file that contains all necessary packages (contains all packages and dependecies necessary for Pandas). Install requirements with ```pip install -r requirements.txt```
 
-3. **X_csv/C2xxx_x.csv**: subdirectory and participant files that MUST BE CREATED AND RENAMED BY YOU, to match the schema set in ***score-x.py*** (when initially downloading this repository, these folders will not be present).
+3. **Participant sub-folders/sub_Cxxxx**: directory, subdirectory, and participant files that MUST BE CREATED AND RENAMED BY YOU, to match the schema set in ***score-x.py*** (when initially downloading this repository, these folders will not be present).
 
 4. **LICENSE.md** & **README.md**: open-source MIT license and directions for use, respectively (".md" file extension means "Markdown": these files are best viewed on Github, or any other markdown viewer; that way they'll be formatted nicely, not just a monospace text blob).
 
