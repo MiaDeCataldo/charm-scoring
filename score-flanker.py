@@ -1,14 +1,15 @@
 # import framework (PANDAS) for manipulating data: https://pandas.pydata.org/
 import pandas as pd
 import glob
+import re 
 
 
 # read all matching file names in ./Flanker_csv folder
 # this variable is a list of strings, all which are present and in form 'Flanker_csv/C2xxx_flanker*.csv'
-files = glob.glob('Flanker_csv/C2???_flanker*.csv')
+files = glob.glob('Participant sub-folders/sub_C????/C????_flanker*.csv')
 
 # create a dataframe with predefined columns to store results
-results = pd.DataFrame(columns=['PID', 'CON_RT', 'INC_RT', 'CON_ACC', 'INC_ACC'])
+results = pd.DataFrame(columns=['PID', 'flnk_con_rt', 'flnk_inc_rt', 'flnk_con_acc', 'flnk_inc_acc'])
 
 # iterate through files that glob found
 for f in files:
@@ -18,7 +19,7 @@ for f in files:
     df = pd.read_csv(f)
 
     # names currently include directory; split string at '/' and take second half
-    filename = f.split('/')[1]
+    filename = re.split(r"[\\/]", f)[2]
     # 1. create list of characters from filename
     # 2. access list from the 1st index to the 4th index to find participant ID (skips C for filenames like C2xxx)
     # 3. resulting list is only integers that make up PID. Glue them together with empty string ('') to make one integer
@@ -74,4 +75,4 @@ for f in files:
 
 results = results.sort_values(by='PID')
 # export output dataframe to local CSV file
-results.to_csv('flanker_scores.csv', sep=',', index=False)
+results.to_csv('charm-scoring/flanker_scores.csv', sep=',', index=False)
