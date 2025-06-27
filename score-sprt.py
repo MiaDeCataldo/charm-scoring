@@ -8,7 +8,7 @@ import math
 import re
 # read all matching file names in ./SPRT_csv folder
 # this variable is a list of strings, all which are present relative to current working directory and in form 'NBack_csv/C2xxx_DualNBack_Task_*.csv'
-files = glob.glob('Participant sub-folders/sub_C????//C????_SRT_*.csv')
+files = glob.glob('CHARM sub Folders/sub_C????//C????_SRT_*.csv')
 
 # process files in order by PID
 files = sorted(files)
