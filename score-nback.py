@@ -7,12 +7,13 @@
 # import external libraries
 import pandas as pd # for dataframe creation and manipulation
 import glob # for finding files whose paths match a pattern
+import re 
 
 #  create list of file names (found in NBack_csv)
-files = glob.glob('NBack_csv/C2???_DualNBack_Task_*.csv')
+files = glob.glob('Participant sub-folders/sub_C????/C????_DualNBack_Task_*.csv')
 
 # create output dataframe (with specified column names)
-results = pd.DataFrame(columns=['PID', '1B_AVG_CORR_RT', '1B_AVG_INCORR_RT', '1B_ACC', '2B_AVG_CORR_RT', '2B_AVG_INCORR_RT', '2B_ACC'])
+results = pd.DataFrame(columns=['PID', 'nb1_avg_crct', 'nb1_avg_inc', 'nb1_accrcy', 'nb2_avg_crct', 'nb2_avg_inc', 'nb2_accrcy'])
 
 # for each file in "files" list, execute the indented code:
 for f in files:
@@ -20,9 +21,9 @@ for f in files:
   # function from Panda's library: create dataframe from path to CSV
   data_csv = pd.read_csv(f)
 
-  # turn "NBack_csv/C2???_DualNBack_Task_*.csv" into "C2???_DualNBack_Task_*.csv"
-  filename = f.split('/')[1]
-  # extract 2xxx from the filename found above (turn it back into a string)
+  # turn "Participant sub-folders/sub_C????/C????_DualNBack_Task_*.csv" into "C????_DualNBack_Task_*.csv"
+  filename = re.split(r"[\\/]", f)[2]
+  # extract xxxx from the filename found above (turn it back into a string)
   pid = ''.join(list(filename)[1:5])
 
   # list of relavant column names within data_csv
@@ -66,4 +67,4 @@ for f in files:
 # sort "results" by participant ID
 results = results.sort_values(by='PID')
 # export output dataframe to local CSV file
-results.to_csv('nback_scores.csv', sep=',', index=False)
+results.to_csv('charm-scoring/nback_scores.csv', sep=',', index=False)
