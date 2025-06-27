@@ -5,9 +5,10 @@ import glob
 # library for mathematical functions: https://docs.python.org/3/library/math.html
 import math
 
+import re
 # read all matching file names in ./SPRT_csv folder
 # this variable is a list of strings, all which are present relative to current working directory and in form 'NBack_csv/C2xxx_DualNBack_Task_*.csv'
-files = glob.glob('SPRT_csv/C2???_SRT_*.csv')
+files = glob.glob('Participant sub-folders/sub_C????//C????_SRT_*.csv')
 
 # process files in order by PID
 files = sorted(files)
@@ -24,7 +25,7 @@ for f in files:
     #print(f)
 
     # extract filename from path and PID from filename
-    filename = f.split('/')[1]
+    filename = re.split(r"[\\/]", f)[2]
     pid = ''.join(list(filename)[1:5])
     
     # read data into dataframe from local file
@@ -97,4 +98,4 @@ for f in files:
 
 # sort by PID and export CSV
 results = results.sort_values(by='PID')
-results.to_csv('sprt_scores.csv', sep=',', index=False)
+results.to_csv('charm-scoring/sprt_scores.csv', sep=',', index=False)
