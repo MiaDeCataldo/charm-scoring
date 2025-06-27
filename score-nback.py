@@ -18,6 +18,7 @@ results = pd.DataFrame(columns=['PID', 'nb1_avg_crct', 'nb1_avg_inc', 'nb1_accrc
 # for each file in "files" list, execute the indented code:
 for f in files:
 
+  print(f) 
   # function from Panda's library: create dataframe from path to CSV
   data_csv = pd.read_csv(f)
 
