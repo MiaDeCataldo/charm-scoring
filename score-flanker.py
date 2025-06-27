@@ -18,7 +18,7 @@ for f in files:
     # read data into dataframe from local file
     df = pd.read_csv(f)
 
-    # names currently include directory; split string at '/' and take second half
+    # names currently include directory; split string at '/' and take last (C????_flanker*.csv)
     filename = re.split(r"[\\/]", f)[2]
     # 1. create list of characters from filename
     # 2. access list from the 1st index to the 4th index to find participant ID (skips C for filenames like C2xxx)
