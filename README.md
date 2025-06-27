@@ -5,7 +5,7 @@
 1. For this code to be able to run, your computer must have a Python interpreter (v3 or greater). Confirm this by entering the following command into a terminal window: ```python3 --version```. If python3 is "not found", it can be downloaded at https://www.python.org/downloads/ (on Windows it is easiest to use the Microsoft Store).
 
 2. Download the source code to your own computer. 
-    - Select the green "<> Code" button at the top right of https://github.com/zekissel/charm-scoring, and download as a ZIP file. Unzip and move the same location as your ***Participant sub-folders*** folder.
+    - Select the green "<> Code" button at the top right of https://github.com/MiaDeCataldo/charm-scoring, and download as a ZIP file. Unzip and move the same location as your ***Participant sub-folders*** folder.
         - For example, if your file path is ***CHARM/Participant sub-folders***, save to ***CHARM/charm-scoring*** 
     - Alternatively, use the git command-line tool to copy the repository directly to the current working directory (requires installing git: https://git-scm.com/book/en/v2/Getting-Started-Installing-Git): ```git clone https://github.com/MiaDeCataldo/charm-scoring```
 
@@ -13,7 +13,7 @@
     - *If the folder/subfolder and/or file names do not match exactly (including capitalization), the files will not be recongnized and no data will be analyzed*
     - *For NBack scoring, all files should be named ***Cxxxx_DualNBack_Task_*.csv*** where the asterick can be any number of any character (a timestamp)*
     - *For SRT scoring, all files should be named ***Cxxxx_SRT_*.csv***
-    -_ *For Flanker scoring, all files should be named ***Cxxxx_flanker.csv***
+    - _For Flanker scoring, all files should be named ***Cxxxx_flanker.csv***_
 
 4. In a terminal window, navigate to the project directory where the ***Participant sub-folders*** file is. (for example ***CHARM***)
     - On Mac:  right click the project directory folder and select "Open in Terminal".
