@@ -12,8 +12,8 @@
 3. In the ***Participant sub-folders*** folder and save all task .csv into their respective subfolders named ***sub_Cxxxx***. 
     - *If the folder/subfolder and/or file names do not match exactly (including capitalization), the files will not be recongnized and no data will be analyzed*
     - *For NBack scoring, all files should be named ***Cxxxx_DualNBack_Task_*.csv*** where the asterick can be any number of any character (a timestamp)*
-    - *For SPRT scoring, all files should be named ***Cxxxx_SRT_*.csv***
-    -_ *For Flanker scoring, all files should be named ***Cxxxx_flanker.csv***_
+    - *For SRT scoring, all files should be named ***Cxxxx_SRT_*.csv***
+    -_ *For Flanker scoring, all files should be named ***Cxxxx_flanker.csv***
 
 4. In a terminal window, navigate to the project directory where the ***Participant sub-folders*** file is. (for example ***CHARM***)
     - On Mac:  right click the project directory folder and select "Open in Terminal".
