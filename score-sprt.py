@@ -22,7 +22,7 @@ print(f'Reading {len(files)} CSV files from ./SPRT_csv folder...')
 for f in files:
 
     # show full path and filename
-    #print(f)
+    print(f)
 
     # extract filename from path and PID from filename
     filename = re.split(r"[\\/]", f)[2]
