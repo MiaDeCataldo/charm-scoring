@@ -10,7 +10,7 @@ import glob # for finding files whose paths match a pattern
 import re 
 
 #  create list of file names (found in NBack_csv)
-files = glob.glob('Participant sub-folders/sub_C????/C????_DualNBack_Task_*.csv')
+files = glob.glob('CHARM sub Folders/sub_C????/C????_DualNBack_Task_*.csv')
 
 # create output dataframe (with specified column names)
 results = pd.DataFrame(columns=['PID', 'nb1_avg_crct', 'nb1_avg_inc', 'nb1_accrcy', 'nb2_avg_crct', 'nb2_avg_inc', 'nb2_accrcy'])
