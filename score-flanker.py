@@ -6,7 +6,7 @@ import re
 
 # read all matching file names in ./Flanker_csv folder
 # this variable is a list of strings, all which are present and in form 'Flanker_csv/C2xxx_flanker*.csv'
-files = glob.glob('Participant sub-folders/sub_C????/C????_flanker*.csv')
+files = glob.glob('CHARM sub Folders/sub_C????/C????_flanker*.csv')
 
 # create a dataframe with predefined columns to store results
 results = pd.DataFrame(columns=['PID', 'flnk_con_rt', 'flnk_inc_rt', 'flnk_con_acc', 'flnk_inc_acc'])
