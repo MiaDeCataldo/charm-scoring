@@ -2,7 +2,7 @@
 import pandas as pd
 import glob
 import re 
-
+from datetime import datetime
 
 # read all matching file names in ./Flanker_csv folder
 # this variable is a list of strings, all which are present and in form 'Flanker_csv/C2xxx_flanker*.csv'
@@ -75,4 +75,4 @@ for f in files:
 
 results = results.sort_values(by='PID')
 # export output dataframe to local CSV file
-results.to_csv('charm-scoring/flanker_scores.csv', sep=',', index=False)
+results.to_csv('charm-scoring/flanker_scores'+datetime.today().strftime('%m%d%Y')+'.csv', sep=',', index=False)
