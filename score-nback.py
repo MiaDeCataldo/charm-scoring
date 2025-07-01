@@ -8,6 +8,7 @@
 import pandas as pd # for dataframe creation and manipulation
 import glob # for finding files whose paths match a pattern
 import re 
+from datetime import datetime
 
 #  create list of file names (found in NBack_csv)
 files = glob.glob('CHARM sub Folders/sub_C????/C????_DualNBack_Task_*.csv')
@@ -68,4 +69,4 @@ for f in files:
 # sort "results" by participant ID
 results = results.sort_values(by='PID')
 # export output dataframe to local CSV file
-results.to_csv('charm-scoring/nback_scores.csv', sep=',', index=False)
+results.to_csv('charm-scoring/nback_scores'+datetime.today().strftime('%m%d%Y')+'.csv', sep=',', index=False)
