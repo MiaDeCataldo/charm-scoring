@@ -65,7 +65,10 @@ for f in files:
   results.loc[len(results.index)] = [pid, rt1BackCorr, rt1BackIncorr, acc1Back, rt2BackCorr, rt2BackIncorr, acc2Back]
 # (loop ends here: move on to next file in list until all files have been read)
 
-
+# Round all values to 4 decimal places
+for c in results.columns.tolist() :
+    if c != "PID":
+        results[c] = results[c].apply(lambda x: '%.4f' %x)
 # sort "results" by participant ID
 results = results.sort_values(by='PID')
 # export output dataframe to local CSV file
