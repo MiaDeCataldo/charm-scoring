@@ -98,5 +98,8 @@ for f in files:
 
 
 # sort by PID and export CSV
+for c in results.columns.tolist() :
+    if c != "PID":
+        results[c] = results[c].apply(lambda x: '%.4f' %x)
 results = results.sort_values(by='PID')
 results.to_csv('charm-scoring/sprt_scores'+datetime.today().strftime('%m%d%Y')+'.csv', sep=',', index=False)
