@@ -9,7 +9,7 @@ from datetime import datetime
 files = glob.glob('CHARM sub Folders/sub_C????/C????_flanker*.csv')
 
 # create a dataframe with predefined columns to store results
-results = pd.DataFrame(columns=['PID', 'flnk_con_rt', 'flnk_inc_rt', 'flnk_con_acc', 'flnk_inc_acc'])
+results = pd.DataFrame(columns=['record_id', 'flnk_con_rt', 'flnk_inc_rt', 'flnk_con_acc', 'flnk_inc_acc'])
 
 # iterate through files that glob found
 for f in files:
@@ -56,23 +56,23 @@ for f in files:
     # find reaction time (RT) for both INC and CON trials
     # format score to four decimal places
     response_time_con = congruent['ResponseTime'].mean()
-    con_rt = '{:10.4f}'.format(response_time_con)
+    con_rt = response_time_con
 
     response_time_inc = incongruent['ResponseTime'].mean()
-    inc_rt = '{:10.4f}'.format(response_time_inc)
+    inc_rt = response_time_inc
 
     # find accuracy (ACC) for both INC and CON trials
     # format score to four decimal places
     accuracy_con = congruent['Score'].sum() / len(congruent.index)
-    con_acc = '{:10.4f}'.format(accuracy_con)
+    con_acc = accuracy_con
 
     accuracy_inc = incongruent['Score'].sum() / len(incongruent.index)
-    inc_acc = '{:10.4f}'.format(accuracy_inc)
+    inc_acc = accuracy_inc
 
     # append participant data to end of output dataframe
     results.loc[len(results.index)] = [pid, con_rt, inc_rt, con_acc, inc_acc]
     
 
-results = results.sort_values(by='PID')
+results = results.sort_values(by='record_id')
 # export output dataframe to local CSV file
-results.to_csv('charm-scoring/flanker_scores'+datetime.today().strftime('%m%d%Y')+'.csv', sep=',', index=False)
+results.to_csv('charm-scoring/flanker_scores'+datetime.today().strftime('%m%d%Y')+'.csv', sep=',', index=False, na_rep = "", float_format='%.4f')
