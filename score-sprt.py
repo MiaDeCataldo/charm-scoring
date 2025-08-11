@@ -15,7 +15,7 @@ files = glob.glob('CHARM sub Folders/sub_C????//C????_SRT_*.csv')
 files = sorted(files)
 
 # empty dataframe to store relavent results
-results = pd.DataFrame(columns=['PID', 'EASY_AVG_CORR_RT', 'EASY_AVG_INCORR_RT', 'EASY_ACC', 'HARD_AVG_CORR_RT', 'HARD_AVG_INCORR_RT', 'HARD_ACC'])
+results = pd.DataFrame(columns=['record_id', 'sprt_esy_crct', 'sprt_esy_inc', 'sprt_esy_accrcy', 'sprt_hrd_crct', 'sprt_hrd_inc', 'sprt_hrd_accrcy'])
 
 print(f'Reading {len(files)} CSV files from ./SPRT_csv folder...')
 
@@ -98,8 +98,5 @@ for f in files:
 
 
 # sort by PID and export CSV
-for c in results.columns.tolist() :
-    if c != "PID":
-        results[c] = results[c].apply(lambda x: '%.4f' %x)
-results = results.sort_values(by='PID')
-results.to_csv('charm-scoring/sprt_scores'+datetime.today().strftime('%m%d%Y')+'.csv', sep=',', index=False)
+results = results.sort_values(by='record_id')
+results.to_csv('charm-scoring/sprt_scores'+datetime.today().strftime('%m%d%Y')+'.csv', sep=',', index=False, na_rep = "", float_format='%.4f')
