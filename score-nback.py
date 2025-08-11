@@ -14,7 +14,7 @@ from datetime import datetime
 files = glob.glob('CHARM sub Folders/sub_C????/C????_DualNBack_Task_*.csv')
 
 # create output dataframe (with specified column names)
-results = pd.DataFrame(columns=['PID', 'nb1_avg_crct', 'nb1_avg_inc', 'nb1_accrcy', 'nb2_avg_crct', 'nb2_avg_inc', 'nb2_accrcy'])
+results = pd.DataFrame(columns=['record_id', 'nb1_avg_crct', 'nb1_avg_inc', 'nb1_accrcy', 'nb2_avg_crct', 'nb2_avg_inc', 'nb2_accrcy'])
 
 # for each file in "files" list, execute the indented code:
 for f in files:
@@ -65,11 +65,7 @@ for f in files:
   results.loc[len(results.index)] = [pid, rt1BackCorr, rt1BackIncorr, acc1Back, rt2BackCorr, rt2BackIncorr, acc2Back]
 # (loop ends here: move on to next file in list until all files have been read)
 
-# Round all values to 4 decimal places
-for c in results.columns.tolist() :
-    if c != "PID":
-        results[c] = results[c].apply(lambda x: '%.4f' %x)
 # sort "results" by participant ID
-results = results.sort_values(by='PID')
+results = results.sort_values(by='record_id')
 # export output dataframe to local CSV file
-results.to_csv('charm-scoring/nback_scores'+datetime.today().strftime('%m%d%Y')+'.csv', sep=',', index=False)
+results.to_csv('charm-scoring/nback_scores'+datetime.today().strftime('%m%d%Y')+'.csv', sep=',', index=False, na_rep = "", float_format='%.4f')
